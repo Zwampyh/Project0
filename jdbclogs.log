@@ -1,0 +1,125 @@
+20:20:24.762 [main] DEBUG fileLogger - Get User from Database
+20:20:25.949 [main] ERROR fileLogger - org.postgresql.util.PSQLException: ERROR: syntax error at or near "SELEC"
+  Position: 1
+20:21:29.576 [main] DEBUG fileLogger - Get User from Database
+20:31:53.022 [main] DEBUG fileLogger - Get User from Database
+22:02:39.303 [main] DEBUG fileLogger - Get User from Database
+22:03:09.640 [main] DEBUG fileLogger - Get User from Database
+22:05:40.943 [main] DEBUG fileLogger - Get User from Database
+13:33:22.432 [main] DEBUG fileLogger - Get User from Database
+13:33:23.701 [main] ERROR fileLogger - org.postgresql.util.PSQLException: ERROR: column "usernames" does not exist
+  Hint: Perhaps you meant to reference the column "login_credentials.user_name".
+  Position: 39
+13:34:47.472 [main] DEBUG fileLogger - Get User from Database
+14:27:37.631 [main] DEBUG fileLogger - Get User from Database
+14:28:01.223 [main] DEBUG fileLogger - Get User from Database
+14:28:13.871 [main] DEBUG fileLogger - Get User from Database
+14:44:55.375 [main] DEBUG fileLogger - Get User from Database
+14:51:59.487 [main] DEBUG fileLogger - Get User from Database
+15:04:37.663 [main] DEBUG fileLogger - Get User from Database
+15:04:59.167 [main] DEBUG fileLogger - Get User from Database
+16:47:29.704 [main] DEBUG fileLogger - Get User from Database
+16:47:30.865 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:01:12.814 [main] DEBUG fileLogger - Get User from Database
+17:01:13.945 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:09:16.326 [main] DEBUG fileLogger - Get User from Database
+17:09:17.472 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:09:18.252 [main] ERROR fileLogger - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+17:11:33.559 [main] DEBUG fileLogger - Get User from Database
+17:11:34.740 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:11:35.528 [main] ERROR fileLogger - org.postgresql.util.PSQLException: This ResultSet is closed.
+17:18:53.583 [main] DEBUG fileLogger - Get User from Database
+17:18:54.743 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:21:17.175 [main] DEBUG fileLogger - Get User from Database
+17:21:18.316 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:23:18.135 [main] DEBUG fileLogger - Get User from Database
+17:23:40.303 [main] DEBUG fileLogger - Get User from Database
+17:23:41.379 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:23:42.136 [main] ERROR fileLogger - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+17:24:21.447 [main] DEBUG fileLogger - Get User from Database
+17:24:22.593 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:28:28.280 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:30:39.499 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:32:17.408 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:36:54.067 [main] DEBUG fileLogger - Get accounts from Database with user_id
+17:39:11.935 [main] DEBUG fileLogger - Get accounts from Database with user_id
+18:29:04.246 [main] DEBUG fileLogger - Get User from Database
+18:29:05.383 [main] DEBUG fileLogger - Get accounts from Database with user_id
+18:42:57.799 [main] DEBUG fileLogger - Get User from Database
+18:42:58.967 [main] DEBUG fileLogger - Get accounts from Database with user_id
+10:16:12.160 [main] DEBUG fileLogger - Get User from Database
+10:16:13.458 [main] DEBUG fileLogger - Get accounts from Database with user_id
+10:56:18.882 [main] DEBUG fileLogger - Get User from Database
+10:56:33.955 [main] DEBUG fileLogger - Get User from Database
+10:56:35.090 [main] DEBUG fileLogger - Get accounts from Database with user_id
+12:34:07.436 [main] DEBUG fileLogger - Get users from Database with acc number
+12:34:41.736 [main] DEBUG fileLogger - Get users from Database with acc number
+12:36:18.321 [main] DEBUG fileLogger - Get User from Database
+12:38:31.218 [main] DEBUG fileLogger - Get User from Database
+12:38:32.354 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:20:50.642 [main] DEBUG fileLogger - Get User from Database
+13:20:51.801 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:35:49.369 [main] DEBUG fileLogger - Get User from Database
+13:35:50.596 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:36:53.673 [main] DEBUG fileLogger - Get User from Database
+13:37:03.401 [main] DEBUG fileLogger - Get User from Database
+13:37:04.565 [main] DEBUG fileLogger - Get accounts from Database with user_id
+18:40:06.937 [main] DEBUG fileLogger - Get User from Database
+18:41:33.720 [main] DEBUG fileLogger - Get User from Database
+18:41:34.864 [main] DEBUG fileLogger - Get accounts from Database with user_id
+18:42:13.785 [main] DEBUG fileLogger - Get User from Database
+18:43:05.641 [main] DEBUG fileLogger - Get User from Database
+18:44:33.305 [main] DEBUG fileLogger - Get User from Database
+21:35:21.839 [main] DEBUG fileLogger - Get User from Database
+21:35:42.624 [main] DEBUG fileLogger - Get User from Database
+21:35:43.752 [main] DEBUG fileLogger - Get accounts from Database with user_id
+21:39:16.414 [main] DEBUG fileLogger - Get User from Database
+21:39:22.948 [main] DEBUG fileLogger - Get User from Database
+21:39:23.655 [main] DEBUG fileLogger - Get accounts from Database with user_id
+22:18:35.508 [main] DEBUG fileLogger - Get User from Database
+22:18:36.921 [main] DEBUG fileLogger - Get accounts from Database with user_id
+22:26:36.885 [main] DEBUG fileLogger - Get User from Database
+22:26:38.127 [main] DEBUG fileLogger - Get accounts from Database with user_id
+22:26:48.211 [main] DEBUG fileLogger - Get User from Database
+22:27:19.502 [main] DEBUG fileLogger - Get User from Database
+22:27:27.290 [main] DEBUG fileLogger - Get User from Database
+22:27:28.001 [main] DEBUG fileLogger - Get accounts from Database with user_id
+00:39:28.883 [main] DEBUG fileLogger - Get User from Database
+00:39:30.210 [main] DEBUG fileLogger - Get accounts from Database with user_id
+01:02:35.957 [main] DEBUG fileLogger - Get User from Database
+01:02:37.181 [main] DEBUG fileLogger - Get accounts from Database with user_id
+01:02:46.185 [main] DEBUG fileLogger - Get User from Database
+01:02:46.895 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:06:56.867 [main] DEBUG fileLogger - Get User from Database
+13:07:01.889 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:39:44.107 [main] DEBUG fileLogger - Get User from Database
+13:40:58.099 [main] DEBUG fileLogger - Get User from Database
+13:41:37.146 [main] DEBUG fileLogger - Get User from Database
+13:41:38.315 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:42:05.690 [main] DEBUG fileLogger - Get User from Database
+13:44:23.979 [main] DEBUG fileLogger - Get User from Database
+13:45:23.187 [main] DEBUG fileLogger - Get User from Database
+13:45:48.897 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:45:52.000 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:45:59.520 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:46:15.384 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:46:17.528 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:48:01.251 [main] DEBUG fileLogger - Get User from Database
+13:48:04.721 [main] DEBUG fileLogger - Get accounts from Database with user_id
+13:48:15.360 [main] DEBUG fileLogger - Get accounts from Database with user_id
+00:11:09.214 [main] DEBUG fileLogger - Get User from Database
+00:15:18.660 [main] DEBUG fileLogger - Get User from Database
+00:15:21.955 [main] DEBUG fileLogger - Get accounts from Database with user_id
+00:15:38.426 [main] ERROR fileLogger - org.postgresql.util.PSQLException: The column index is out of range: 123, number of columns: 2.
+00:18:17.870 [main] DEBUG fileLogger - Get User from Database
+00:18:21.243 [main] DEBUG fileLogger - Get accounts from Database with user_id
+00:18:33.040 [main] ERROR fileLogger - org.postgresql.util.PSQLException: The column index is out of range: 123, number of columns: 2.
+00:19:47.317 [main] DEBUG fileLogger - Get User from Database
+00:19:58.356 [main] ERROR fileLogger - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "account_info_pkey"
+  Detail: Key (acc_num)=(123) already exists.
+00:23:46.253 [main] DEBUG fileLogger - Get User from Database
+00:23:53.215 [main] ERROR fileLogger - org.postgresql.util.PSQLException: ERROR: syntax error at or near "values"
+  Position: 33
+00:27:08.094 [main] DEBUG fileLogger - Get User from Database
+00:27:15.814 [main] ERROR fileLogger - org.postgresql.util.PSQLException: Cannot commit when autoCommit is enabled.
+00:27:42.213 [main] DEBUG fileLogger - Get User from Database
