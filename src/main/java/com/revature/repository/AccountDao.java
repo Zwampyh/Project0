@@ -25,10 +25,29 @@ public class AccountDao implements AccountDaoInterface{
 		fileLogger = LoggerFactory.getLogger("fileLogger");
 	}
 	
+	//Create
+	public void createAccount(int accID) {
+		fileLogger.debug("Creating account - " + accID);
+		final String sql = "INSERT INTO account_info (acc_num, balance) values ("+accID+", 0);";
+		
+		try(Connection connection = DBConnecter.getConnection();
+				PreparedStatement statement = connection.prepareStatement(sql);)
+		{
+			statement.execute();
+			
+			
+		} catch (SQLException e) {
+			consoleLogger.error(e.getMessage());
+			fileLogger.error(e.toString());
+		}
+		
+	
+	}
 
+	//Read
+	
 	@Override
 	public List<Account> getAccountsByUserId(int userId) throws SQLException{
-		consoleLogger.debug("Getting accounts with user id: " + userId);
 		fileLogger.debug("Get accounts from Database with user_id");
 		
 		List<Account> accounts = new LinkedList<>();
@@ -46,7 +65,6 @@ public class AccountDao implements AccountDaoInterface{
 				accNums.add(set.getInt(2));
 				
 			}
-			consoleLogger.debug("Getting accounts with accountnums " + accNums);
 			for(Integer i:accNums) {
 				final String sql2 = "SELECT * FROM account_info WHERE acc_num = '"+i+"';";
 				ResultSet set2 = statement.executeQuery(sql2);	
@@ -62,34 +80,9 @@ public class AccountDao implements AccountDaoInterface{
 		
 		return accounts;
 	}
-	
-	public List<Integer> getUsersAssociatedWithAccount(int accNum) throws SQLException {
-		consoleLogger.debug("Getting user ids associated with account number: " + accNum);
-		fileLogger.debug("Get users from Database with acc number");
-		
-		List<Integer> users = new LinkedList<>();
-		
-		final String sql = "SELECT * FROM useracc_bridge WHERE acc_num = '"+accNum+"';";
-		
-		try(Connection connection = DBConnecter.getConnection();
-				Statement statement = connection.createStatement();)
-		{
-			ResultSet set = statement.executeQuery(sql);
-			
-			while(set.next()) {
-				users.add(set.getInt(1));
-			}
-		}
-		catch (SQLException e) {
-			consoleLogger.error(e.getMessage());
-			fileLogger.error(e.toString());
-		}
-		
-		
-		return users;
-	}
 
 	public Account getAccountbyAccNum(int accNum) throws SQLException{
+		fileLogger.debug("Get account - " + accNum);
 		final String sql = "SELECT * FROM account_info WHERE acc_num = '"+accNum+"';";
 		Account account = null;
 		
@@ -109,17 +102,42 @@ public class AccountDao implements AccountDaoInterface{
 		return account;
 	}
 
+	@Override
+	public List<Integer> getAccountIDs() {
+		fileLogger.debug("Getting all AccountIDs");
+			List<Integer> userAccounts = new LinkedList<>();
+			
+			final String sql = "Select acc_num from account_info;";
+			
+			try(Connection connection = DBConnecter.getConnection();
+					Statement statement = connection.createStatement();)
+			{
+				ResultSet set = statement.executeQuery(sql);
+				
+				while(set.next()) {
+					userAccounts.add(set.getInt(1));
+				}
+			}
+			catch (SQLException e) {
+				consoleLogger.error(e.getMessage());
+				fileLogger.error(e.toString());
+			}
+			
+			
+			return userAccounts;
+		}
+
+	//Update
 
 	public void updateAccountAmount(double amount, int accountNum) throws SQLException {
+		fileLogger.debug("Updating account "+accountNum+" to have a balance of "+amount);
 		final String SQL = "UPDATE account_info SET balance = "+amount+" where acc_num = "+accountNum+";";
 		
 		try(Connection connection = DBConnecter.getConnection();
 				PreparedStatement statement = connection.prepareStatement(SQL);)
-		{
-			//statement.setDouble(1, accountNum);
-			//statement.setDouble(2, amount);
-			
+		{	
 			statement.execute();
+			
 		} catch (SQLException e) {
 			
 			consoleLogger.error(e.getMessage());
@@ -127,4 +145,13 @@ public class AccountDao implements AccountDaoInterface{
 		}
 		
 	}
+
+
+
+	
+	
+
 }
+		
+
+
