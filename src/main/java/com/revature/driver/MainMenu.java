@@ -9,6 +9,8 @@ import com.revature.repository.AccountDao;
 import com.revature.repository.AccountDaoInterface;
 import com.revature.repository.UserDao;
 import com.revature.repository.UserDaoInterface;
+import com.revature.repository.exception.AccNotFoundException;
+import com.revature.repository.exception.UserNotFoundException;
 import com.revature.repository.AUBridgeDao;
 import com.revature.repository.AUBridgeDaoInterface;
 import com.revature.services.User;
@@ -39,7 +41,7 @@ public class MainMenu {
 	}
 	
 
-	public User login() throws SQLException {
+	public User login() throws SQLException, UserNotFoundException {
 		User user = userController.login();
 	if (user != null) {
 		System.out.println("Welcome, " + user.getUsername() + "!");
@@ -59,7 +61,7 @@ public class MainMenu {
 		return choice;	
 	}
 	
-	public void getUserMenu(User user) throws SQLException {
+	public void getUserMenu(User user) throws SQLException, UserNotFoundException, AccNotFoundException {
 		if (user.getType().equals("customer")){
 			customerMenu(user);
 		} else if (user.getType().equals("employee")) {
@@ -70,7 +72,7 @@ public class MainMenu {
 	}
 
 	
-	private void customerMenu(User user) throws SQLException {
+	private void customerMenu(User user) throws SQLException, UserNotFoundException, AccNotFoundException {
 		boolean looping = true;
 		while(looping) {
 			System.out.println("Menu: 1 - View account info, 2 - Withdraw, 3 - Deposit, 4 - Transfer, 5 - apply for new acccount, 6 - logout");
@@ -149,7 +151,7 @@ public class MainMenu {
 	}
 
 
-	private void employeeMenu() throws SQLException {
+	private void employeeMenu() throws SQLException, UserNotFoundException {
 		boolean looping = true;
 		while (looping) {
 			System.out.println("Menu: 1 - view all users and accounts 2 - view account information, 3 - view user information, 4 - approve or deny account, 5 - logout");
@@ -192,7 +194,7 @@ public class MainMenu {
 	}
 
 
-	private void adminMenu() throws SQLException {
+	private void adminMenu() throws SQLException, UserNotFoundException, AccNotFoundException {
 		boolean looping = true;
 		while (looping) {
 			System.out.println("Menu: 1 - view all users and accounts 2 - view account information, 3 - view user information, 4 - approve or deny account, 5 - withdraw from an account, 6 - deposit into an account, 7 - transfer between two accounts, 8 - cancel an account, 9 - logout");

@@ -12,6 +12,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.revature.repository.exception.AccNotFoundException;
 import com.revature.services.Account;
 import com.revature.util.DBConnecter;
 
@@ -81,7 +82,7 @@ public class AccountDao implements AccountDaoInterface{
 		return accounts;
 	}
 
-	public Account getAccountbyAccNum(int accNum) throws SQLException{
+	public Account getAccountbyAccNum(int accNum) throws SQLException, AccNotFoundException{
 		fileLogger.debug("Get account - " + accNum);
 		final String sql = "SELECT * FROM account_info WHERE acc_num = '"+accNum+"';";
 		Account account = null;
@@ -94,7 +95,9 @@ public class AccountDao implements AccountDaoInterface{
 				
 				if (set.next()) {
 					account = new Account(set.getInt(1), set.getDouble(2));
-				}		
+					
+				} else {
+					throw new AccNotFoundException("Account not found!"); }
 			} catch (SQLException e) {
 				consoleLogger.error(e.getMessage());
 				fileLogger.error(e.toString());

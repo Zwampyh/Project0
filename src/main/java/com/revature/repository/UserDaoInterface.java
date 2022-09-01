@@ -3,6 +3,7 @@ package com.revature.repository;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.repository.exception.UserNotFoundException;
 import com.revature.services.User;
 
 public interface UserDaoInterface {
@@ -16,7 +17,7 @@ public interface UserDaoInterface {
 	
 	//Read
 	
-	public User getUser(String username, String password) throws SQLException;
+	public User getUser(String username, String password) throws SQLException, UserNotFoundException;
 
 
 	public List<Integer> getUserIDs();
@@ -27,7 +28,7 @@ public interface UserDaoInterface {
 
 	public List<String> getUsernames();
 
-	public User getUserWithID(int userid) throws SQLException;
+	public User getUserWithID(int userid) throws SQLException, UserNotFoundException;
 	
 	//Update
 	

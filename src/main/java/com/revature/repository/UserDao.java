@@ -11,6 +11,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.revature.repository.exception.UserNotFoundException;
 import com.revature.services.Admin;
 import com.revature.services.Customer;
 import com.revature.services.Employee;
@@ -50,7 +51,7 @@ public class UserDao implements UserDaoInterface{
 	//Read
 	
 	@Override
-	public User getUser(String username, String password) throws SQLException{
+	public User getUser(String username, String password) throws SQLException, UserNotFoundException{
 		fileLogger.debug("Get User from Database - " + username);
 		
 		User user = null;
@@ -87,6 +88,8 @@ public class UserDao implements UserDaoInterface{
 						set.getString(5));		
 				}
 
+			} else {
+				throw new UserNotFoundException("User not found!");
 			}
 		} catch (SQLException e) {
 			consoleLogger.error(e.getMessage());
@@ -96,7 +99,7 @@ public class UserDao implements UserDaoInterface{
 		return user;
 	}
 
-	public User getUserWithID(int userID){
+	public User getUserWithID(int userID) throws UserNotFoundException{
 		fileLogger.debug("Getting User from Database with ID - " + userID);
 		User user = null;
 		
@@ -117,6 +120,8 @@ public class UserDao implements UserDaoInterface{
 						set.getString(6)); 
 
 
+			}else {
+				throw new UserNotFoundException("User not found!");
 			}
 		} catch (SQLException e) {
 			consoleLogger.error(e.getMessage());

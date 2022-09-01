@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
+import com.revature.repository.exception.AccNotFoundException;
+import com.revature.repository.exception.UserNotFoundException;
 import com.revature.services.User;
 
 public class Driver {
-	public static void main(String[] args) throws SQLException {
-		System.out.println("Welcome to THE BANKEROONI");
+	public static void main(String[] args) throws SQLException, UserNotFoundException, AccNotFoundException {
+		System.out.println("Welcome to THE BANK");
 		boolean exit = false;
 		double loggedIn;
 		while(exit != true) {
@@ -28,6 +29,8 @@ public class Driver {
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("Invalid input!");
+			} catch (UserNotFoundException e) {
+				System.out.println(e.getMessage());
 			}
 			
 			

@@ -10,6 +10,8 @@ import com.revature.repository.AccountDao;
 import com.revature.repository.AccountDaoInterface;
 import com.revature.repository.UserDao;
 import com.revature.repository.UserDaoInterface;
+import com.revature.repository.exception.AccNotFoundException;
+import com.revature.repository.exception.UserNotFoundException;
 import com.revature.repository.AUBridgeDaoInterface;
 import com.revature.services.Account;
 import com.revature.services.Customer;
@@ -43,7 +45,7 @@ public class UserController {
 	
 	
 	//login methods
-	public User validateLogin(String username, String password) throws SQLException {
+	public User validateLogin(String username, String password) throws SQLException, UserNotFoundException {
 		if(username == null && password == null) {
 			return null;
 		} 
@@ -60,7 +62,7 @@ public class UserController {
 		
 	}
 	
-	public User login() throws SQLException {
+	public User login() throws SQLException, UserNotFoundException {
 		System.out.println("Username:");
 		String username = getUserInput();
 		System.out.println("Password");
@@ -95,9 +97,11 @@ public class UserController {
 		}
 	}
 
-	public void withdraw(int accountID) throws SQLException {
+	public void withdraw(int accountID) throws SQLException, AccNotFoundException {
 		AccountDao accDao = new AccountDao();
-		Account account = accDao.getAccountbyAccNum(accountID);
+		Account account;
+		try {
+			account = accDao.getAccountbyAccNum(accountID);
 		System.out.print("How much would you like to withdraw?");
 		double amount = getUserDouble();
 		double total = account.getBalance() - amount;
@@ -107,21 +111,30 @@ public class UserController {
 		else { 
 		accDao.updateAccountAmount(total, accountID);
 		}
+		} catch (AccNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 
-	public void deposit(int accountID) throws SQLException{
-		AccountDao accDao = new AccountDao();
-		Account account = accDao.getAccountbyAccNum(accountID);
+	public void deposit(int accountID) throws SQLException, AccNotFoundException{
+		try {
+		Account account = accountDao.getAccountbyAccNum(accountID);
 		System.out.println("How much would you like to deposit?");
 		double amount = getUserDouble();
 		double total = account.getBalance() + amount;
-		accDao.updateAccountAmount(total, accountID);
+		accountDao.updateAccountAmount(total, accountID);
+		} catch (AccNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void transfer(int acc1, int acc2) throws SQLException{
 		AccountDao accDao = new AccountDao();
-		Account account1 = accDao.getAccountbyAccNum(acc1);
+		Account account1;
+		try {
+			account1 = accDao.getAccountbyAccNum(acc1);
+
 		Account account2 = accDao.getAccountbyAccNum(acc2);
 		System.out.println("How much would you like to transfer?");
 		double amount = getUserDouble();
@@ -133,6 +146,10 @@ public class UserController {
 		accDao.updateAccountAmount(total1, acc1);
 		accDao.updateAccountAmount(total2, acc2);
 		System.out.println("Success!");
+		}
+
+		} catch (AccNotFoundException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -239,17 +256,20 @@ public class UserController {
 		}
 	}
 
-	public void getUserwithID(int userId) throws SQLException{
-		UserDao uDao = new UserDao();
-		User user = uDao.getUserWithID(userId);
-		if (user.getType().equals("customer")) {
-			System.out.println("UserID = "+user.getId()+", Username = "+user.getUsername()+", email = "+user.getEmail()+", New Account pending = "+user.getPending());
+	public void getUserwithID(int userId) throws SQLException, UserNotFoundException{
+		try {
+			User user = userDao.getUserWithID(userId);
+			if (user.getType().equals("customer")) {
+				System.out.println("UserID = "+user.getId()+", Username = "+user.getUsername()+", email = "+user.getEmail()+", New Account pending = "+user.getPending());
+				
+			} else {
+				System.out.println("invalid ID!");
+				}
 			
-		} else {
+		} catch (UserNotFoundException e){
 			System.out.println("invalid ID!");
-			}
 		}
-	
+	}
 	public void createUser() throws SQLException {
 		User user = newUser();
 		if (user == null) {
@@ -261,7 +281,7 @@ public class UserController {
 	
 	}
 
-	public void approveOrDeny(int userid, int aOrD) throws SQLException {
+	public void approveOrDeny(int userid, int aOrD) throws SQLException, UserNotFoundException {
 		User user = userDao.getUserWithID(userid);
 		if (user.getPending().equals("Pending")) {
 			int accID;
