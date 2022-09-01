@@ -147,3 +147,27 @@
 22:56:59.171 [main] DEBUG fileLogger - Creating bridge between user 1 and account 494
 22:57:15.176 [main] DEBUG fileLogger - Get User from Database - BobRoss
 22:57:17.289 [main] DEBUG fileLogger - Get accounts from Database with user_id
+23:13:11.298 [main] DEBUG fileLogger - Get User from Database - BobRoss
+23:13:27.457 [main] DEBUG fileLogger - Get accounts from Database with user_id
+23:13:39.994 [main] DEBUG fileLogger - Getting users associated with 459
+23:13:40.700 [main] DEBUG fileLogger - Get account - 459
+23:13:44.745 [main] DEBUG fileLogger - Updating account 459 to have a balance of 1020.11
+23:13:48.361 [main] DEBUG fileLogger - Get accounts from Database with user_id
+23:14:03.824 [main] DEBUG fileLogger - Changing user's application to Pending, ID - 1
+23:14:04.531 [main] DEBUG fileLogger - Get User from Database - BobRoss
+23:14:28.833 [main] DEBUG fileLogger - Get User from Database - Bossman
+23:14:40.777 [main] DEBUG fileLogger - Get User from Database - Bossman
+23:15:07.802 [main] DEBUG fileLogger - Get User from Database - Bossman
+23:15:39.658 [main] DEBUG fileLogger - Get User from Database - BobRoss
+23:15:41.921 [main] DEBUG fileLogger - Changing user's application to Pending, ID - 1
+23:15:42.649 [main] DEBUG fileLogger - Get User from Database - BobRoss
+23:15:52.489 [main] DEBUG fileLogger - Get User from Database - Bossman
+23:17:36.417 [main] DEBUG fileLogger - Getting User from Database with ID - 1
+23:17:37.173 [main] DEBUG fileLogger - Changing user's application to notPending, ID - 1
+23:17:37.866 [main] DEBUG fileLogger - Getting all AccountIDs
+23:17:38.572 [main] DEBUG fileLogger - Creating account - 42
+23:17:39.282 [main] DEBUG fileLogger - Creating bridge between user 1 and account 42
+23:17:51.704 [main] DEBUG fileLogger - Get User from Database - BobRoss
+23:17:55.601 [main] DEBUG fileLogger - Get accounts from Database with user_id
+23:23:26.602 [main] DEBUG fileLogger - Get User from Database - Bossman
+23:23:39.097 [main] DEBUG fileLogger - Get User from Database - BobRoss

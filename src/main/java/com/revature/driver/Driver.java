@@ -15,11 +15,12 @@ public class Driver {
 		boolean exit = false;
 		double loggedIn;
 		while(exit != true) {
+			User user;
 			MainMenu mm = new MainMenu(new Scanner(System.in));
 			try {
 			loggedIn = mm.loginMenu();
 				if (loggedIn == 1) {
-					User user = mm.login();
+					user = mm.login();
 					mm.getUserMenu(user);
 				} else if (loggedIn == 2) {
 					mm.createUser();
